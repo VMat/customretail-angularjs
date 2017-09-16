@@ -1,0 +1,58 @@
+<aside>
+    <h4>Filtrar</h4>
+    <article>
+        <h5 class="filter-name">Nombre del hotel</h5>
+        <input type="search" class="form-control" ng-model="inputName" placeholder="Ingrese el nombre del hotel">
+    </article>
+    <article>
+        <h5 class="filter-name">Precio por noche</h5>
+        <div class="row">
+            <span style="float: left; margin-left: 5%">ARS {{priceRange.min}}</span>
+            <span style="float: right; margin-right: 5%">ARS {{priceRange.max}}</span>
+        </div>
+        
+        <div class='multi-range'>
+            <hr />
+            <input type='range' 
+               step="{{stepPrice}}" min="{{minPrice}}" max="{{maxPrice}}" ng-model="priceRange.min" 
+            />
+            <input type='range' 
+               step="{{stepPrice}}" min="{{minPrice}}" max="{{maxPrice}}" ng-model="priceRange.max"     
+            />
+	    </div>
+
+    </article>
+    <article>
+        <h5 class="filter-name">Estrellas</h5>
+        <ul style="list-style-type: none; margin: 0; padding: 0;">
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.ALL]" ng-disabled="noStarsSelected()" ng-checked="noStarsSelected()" ng-click="setAllStars()"> Todas las estrellas</label></li>
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.FIVE]"> * * * * *</label></li>
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.FOUR]"> * * * *</label></li>
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.THREE]"> * * *</label></li>
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.TWO]"> * *</label></li>
+            <li><label><input type="checkbox" ng-model="inputStars[STARS.ONE]"> *</label></li>
+        </ul>
+    </article>
+</aside>
+<main>
+    <article ng-repeat="(i,hotel) in hotels | filter : testHotel">
+        <div class="hotel-card">
+            <div class="hotel-card-section-image">
+                <img ng-src="{{hotel.image}}" style="height: 100%"/>
+            </div>
+            <div class="hotel-card-section-description">
+                <h4>{{hotel.name}}</h4>
+                <p>{{hotel.stars}}*</p>
+                <p>Sólo la habitación</p>
+                <p>#######</p>
+            </div>
+            <div class="hotel-card-section-more">
+                <p style="font-size: xx-small">Precio por noche por habitación</p>
+                <h3>ARS {{hotel.price}}</h3>
+                <p style="font-size: xx-small">Impuestos y tasas no incluidos</p>
+                <button class="btn btn-primary" type="button">Ver hotel</button>
+                <p style="font-size: x-small">Pagá en destino</p>
+            </div>
+        </div>
+    </article>
+</main>

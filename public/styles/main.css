@@ -1,0 +1,136 @@
+body{
+    background:#eee;
+}
+
+a{
+    color:#fff;
+}
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+}
+
+aside {
+    float: left;
+    width: 30%;
+}
+
+main {
+    float: right;
+    width: 70%;
+}
+
+.main-container {
+
+    /*width:996px;*/
+    margin:0px auto;
+    font-size:1em;
+}
+
+main,aside {
+
+    padding: 5px;
+    -moz-border-radius:5px;-webkit-border-radius:5px;-o-border-radius:5px;border-radius:5px;
+}
+
+.filter-name {
+    color: rgb(0, 137, 255);
+}
+
+article {
+    background: #fff;
+    padding: 10px;
+    margin: 1%
+}
+
+.hotel-card {
+    height: 150px;
+    width: 100%;
+    display: inline-block;
+}
+
+.hotel-card-section-image {
+    height: 100%;
+    width: 30%;
+    float: left;
+}
+
+.hotel-card-section-image img {
+    width: 100%;
+    height: auto;
+}
+
+.hotel-card-section-description {
+    height: 100%;
+    width: 50%;
+    padding: 0 10px;
+    float: left;
+}
+
+.hotel-card-section-more {
+    border-left: thin dashed;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    float: right;
+}
+
+.nav-compressed{
+    display: none;
+}
+
+/* para 980px o menos */
+@media only screen and (max-width:992px), only screen and (max-device-width: 1000px){
+
+    aside,main {
+        float:none;
+        width:96%;
+    }
+
+    aside {
+        margin-top:5px;
+    }
+
+    .nav-expanded{
+        display:none;
+    }
+
+    .nav-compressed{
+        background-color:#1b4078; width: 100%;
+        display:inline-block;
+    }
+
+    .hotel-card {
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+
+    .hotel-card-section-image {
+        width: 100%;
+        float: none;
+    }
+
+    .hotel-card-section-image img {
+        width: 100%;
+    }
+
+    .hotel-card-section-description {
+        width: 100%;
+        padding: 10px 0;
+        float: none;
+    }
+
+    .hotel-card-section-more {
+        border-left: none;
+        border-top: thin dashed;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        float: none;
+    }
+}
